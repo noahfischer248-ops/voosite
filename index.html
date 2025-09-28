@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$VOO - Very Obvious Opportunity 🚀</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -20,7 +23,7 @@
         }
 
         body {
-            font-family: 'Arial Black', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #0A0A0A 0%, #1a0033 100%);
             color: white;
             overflow-x: hidden;
@@ -85,10 +88,26 @@
         }
 
         .logo {
-            font-size: 2em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-yellow);
+            box-shadow: 0 0 15px var(--primary-yellow);
+            animation: pulse 2s infinite;
+        }
+
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5em;
+            letter-spacing: 2px;
             color: var(--primary-yellow);
             text-shadow: 0 0 20px var(--primary-yellow);
-            animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
@@ -145,7 +164,9 @@
         }
 
         h1 {
-            font-size: 5em;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 6em;
+            letter-spacing: 3px;
             margin-bottom: 20px;
             text-align: center;
             background: linear-gradient(45deg, var(--primary-yellow), var(--electric-blue), var(--purple-glow));
@@ -160,6 +181,8 @@
         }
 
         .tagline {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
             font-size: 2em;
             color: var(--electric-blue);
             margin-bottom: 30px;
@@ -177,13 +200,15 @@
 
         .btn {
             padding: 15px 40px;
+            font-family: 'Inter', sans-serif;
             font-size: 1.2em;
+            font-weight: 700;
+            letter-spacing: 1px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s;
             text-transform: uppercase;
-            font-weight: bold;
             position: relative;
             overflow: hidden;
         }
@@ -234,13 +259,25 @@
             animation: glow 2s ease-in-out infinite;
         }
 
+        .ticker p:first-child {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--electric-blue);
+            margin-bottom: 10px;
+        }
+
         @keyframes glow {
             0%, 100% { box-shadow: 0 0 20px var(--primary-yellow); }
             50% { box-shadow: 0 0 40px var(--primary-yellow), 0 0 60px var(--electric-blue); }
         }
 
         .price {
-            font-size: 3em;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5em;
+            letter-spacing: 2px;
             color: var(--voo-green);
             margin: 10px 0;
         }
@@ -304,44 +341,14 @@
         }
 
         .feature-title {
-            font-size: 1.5em;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8em;
+            letter-spacing: 1px;
             color: var(--primary-yellow);
             margin-bottom: 15px;
         }
 
-        /* Roadmap */
-        .roadmap {
-            padding: 80px 20px;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .roadmap-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .roadmap-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 4px solid var(--primary-yellow);
-            padding: 20px;
-            margin: 20px 0;
-            position: relative;
-            transition: all 0.3s;
-        }
-
-        .roadmap-item:hover {
-            transform: translateX(10px);
-            background: rgba(255, 215, 0, 0.1);
-        }
-
-        .roadmap-item::before {
-            content: '🚀';
-            position: absolute;
-            left: -30px;
-            font-size: 1.5em;
-        }
-
-        /* Pepe Army Section */
+        /* VOO Army Section */
         .pepe-army {
             padding: 80px 20px;
             text-align: center;
@@ -411,27 +418,84 @@
         }
 
         /* Contract address */
-        .contract {
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid var(--voo-green);
-            border-radius: 10px;
-            padding: 15px;
-            margin: 20px auto;
-            max-width: 500px;
-            word-break: break-all;
-            cursor: pointer;
-            transition: all 0.3s;
+        .contract-wrapper {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(0, 255, 255, 0.1));
+            border: 2px solid var(--primary-yellow);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 600px;
+            position: relative;
         }
 
-        .contract:hover {
-            background: rgba(76, 175, 80, 0.2);
+        .contract-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9em;
+            color: var(--electric-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .contract-address-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .contract-address {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--primary-yellow);
+            flex: 1;
+            word-break: break-all;
+            letter-spacing: 1px;
+        }
+
+        .copy-btn {
+            background: linear-gradient(45deg, var(--primary-yellow), var(--electric-blue));
+            color: black;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.98);
         }
 
         .copy-feedback {
-            color: var(--voo-green);
-            margin-left: 10px;
+            position: absolute;
+            top: -30px;
+            right: 20px;
+            background: var(--voo-green);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: 600;
             opacity: 0;
             transition: opacity 0.3s;
+            pointer-events: none;
         }
 
         .copy-feedback.show {
@@ -444,12 +508,14 @@
     
     <!-- Navigation -->
     <nav>
-        <div class="logo">$VOO 🎭</div>
+        <div class="logo">
+            <img src="voo2.png" alt="$VOO" class="logo-img">
+            <span class="logo-text">$VOO</span>
+        </div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#tokenomics">Tokenomics</a></li>
-            <li><a href="#roadmap">Roadmap</a></li>
             <li><a href="#community">Community</a></li>
         </ul>
     </nav>
@@ -471,15 +537,22 @@
             <button class="btn btn-secondary" onclick="joinCommunity()">Join the Party</button>
         </div>
 
-        <div class="contract" onclick="copyContract()">
-            <small>Contract: 0xVOO420691337PEPEDJ</small>
-            <span class="copy-feedback" id="copyFeedback">Copied!</span>
+        <div class="contract-wrapper">
+            <div class="contract-label">Contract Address</div>
+            <div class="contract-address-container">
+                <div class="contract-address">0xVOO420691337PEPEDJ</div>
+                <button class="copy-btn" onclick="copyContract()">
+                    <span>📋</span>
+                    <span>Copy</span>
+                </button>
+            </div>
+            <div class="copy-feedback" id="copyFeedback">✓ Copied!</div>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="about">
-        <h2 style="text-align: center; font-size: 3em; margin-bottom: 20px;">Why $VOO?</h2>
+        <h2 style="font-family: 'Bebas Neue', sans-serif; text-align: center; font-size: 4em; letter-spacing: 2px; margin-bottom: 20px;">Why $VOO?</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">🎵</div>
@@ -516,7 +589,7 @@
 
     <!-- Tokenomics -->
     <section class="features" id="tokenomics" style="background: rgba(255, 215, 0, 0.05);">
-        <h2 style="text-align: center; font-size: 3em; margin-bottom: 40px;">Tokenomics</h2>
+        <h2 style="font-family: 'Bebas Neue', sans-serif; text-align: center; font-size: 4em; letter-spacing: 2px; margin-bottom: 40px;">Tokenomics</h2>
         <div style="max-width: 600px; margin: 0 auto; text-align: center;">
             <div class="ticker" style="margin-bottom: 30px;">
                 <h3 style="color: var(--primary-yellow); font-size: 1.5em;">Total Supply</h3>
@@ -543,33 +616,10 @@
         </div>
     </section>
 
-    <!-- Roadmap -->
-    <section class="roadmap" id="roadmap">
-        <h2 style="text-align: center; font-size: 3em; margin-bottom: 40px;">Roadmap to the Moon</h2>
-        <div class="roadmap-container">
-            <div class="roadmap-item">
-                <h3 style="color: var(--primary-yellow);">Phase 1: The Drop</h3>
-                <p>Launch token, build community, first memes drop. Get the party started! 🎉</p>
-            </div>
-            <div class="roadmap-item">
-                <h3 style="color: var(--electric-blue);">Phase 2: The Beat</h3>
-                <p>Major CEX listings, influencer partnerships, viral TikToks. VOO VOO VOO! 🎵</p>
-            </div>
-            <div class="roadmap-item">
-                <h3 style="color: var(--purple-glow);">Phase 3: The Bass</h3>
-                <p>NFT collection launch, staking rewards, exclusive DJ sets for holders! 🎧</p>
-            </div>
-            <div class="roadmap-item">
-                <h3 style="color: var(--voo-green);">Phase 4: The Moon</h3>
-                <p>$1 billion market cap, Times Square billboard, actual moon party (seriously). 🚀</p>
-            </div>
-        </div>
-    </section>
-
     <!-- VOO Army Section -->
     <section class="pepe-army" id="community">
-        <h2 style="font-size: 3em; margin-bottom: 20px;">Join the VOO Army!</h2>
-        <p style="font-size: 1.5em; color: var(--electric-blue);">Don't be poor, anon!</p>
+        <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: 4em; letter-spacing: 2px; margin-bottom: 20px;">Join the VOO Army!</h2>
+        <p style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.5em; color: var(--electric-blue);">Don't be poor, anon!</p>
         <div class="pepe-container">
             <span class="pepe" style="--i: 0">🎭</span>
             <span class="pepe" style="--i: 1">🎵</span>
@@ -584,14 +634,14 @@
 
     <!-- Footer -->
     <footer>
-        <h3 style="color: var(--primary-yellow); margin-bottom: 20px;">Stop Being Poor!</h3>
+        <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 2.5em; letter-spacing: 2px; color: var(--primary-yellow); margin-bottom: 20px;">Stop Being Poor!</h3>
         <div class="social-links">
             <a href="#" title="Twitter">𝕏</a>
             <a href="#" title="Telegram">✈️</a>
             <a href="#" title="Discord">💬</a>
             <a href="#" title="Chart">📊</a>
         </div>
-        <p style="margin-top: 30px; opacity: 0.7;">
+        <p style="font-family: 'Inter', sans-serif; margin-top: 30px; opacity: 0.7; line-height: 1.6;">
             $VOO is a meme token with no intrinsic value. Don't invest your rent money, anon!<br>
             Not financial advice. DYOR. WAGMI! 🚀
         </p>
