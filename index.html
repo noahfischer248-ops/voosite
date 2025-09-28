@@ -74,6 +74,68 @@
             }
         }
 
+        /* Confetti effect */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            animation: confetti-fall linear infinite;
+            z-index: 9999;
+            top: -10px;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0.8;
+            }
+        }
+
+        .confetti-square {
+            width: 8px;
+            height: 8px;
+        }
+
+        .confetti-rectangle {
+            width: 6px;
+            height: 12px;
+        }
+
+        .confetti-circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        @keyframes confetti-sway {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            25% {
+                transform: translateY(27.5vh) translateX(-30px) rotate(180deg);
+            }
+            50% {
+                transform: translateY(55vh) translateX(30px) rotate(360deg);
+            }
+            75% {
+                transform: translateY(82.5vh) translateX(-15px) rotate(540deg);
+            }
+            100% {
+                transform: translateY(110vh) translateX(0) rotate(720deg);
+                opacity: 0.8;
+            }
+        }
+
+        .confetti-sway {
+            animation-name: confetti-sway !important;
+        }
+
         /* Navigation */
         nav {
             position: fixed;
@@ -741,15 +803,79 @@
             setTimeout(() => particle.remove(), 4000);
         }
 
-        // Create particles periodically
-        setInterval(createParticle, 500);
+        // Create confetti pieces
+        function createConfetti() {
+            const colors = ['#FFD700', '#00FFFF', '#FF00FF', '#4CAF50', '#FF6B6B', '#FFA500', '#FF1493', '#00FA9A'];
+            const shapes = ['confetti-square', 'confetti-rectangle', 'confetti-circle'];
+            
+            const confetti = document.createElement('div');
+            const shapeClass = shapes[Math.floor(Math.random() * shapes.length)];
+            confetti.className = `confetti ${shapeClass}`;
+            
+            // Random color
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Random starting position across the screen width
+            confetti.style.left = Math.random() * 100 + '%';
+            
+            // Random animation duration (falling speed)
+            const duration = Math.random() * 3 + 2; // Between 2-5 seconds
+            
+            // Add swaying animation to half of the confetti
+            if (Math.random() > 0.5) {
+                confetti.classList.add('confetti-sway');
+            }
+            
+            confetti.style.animationDuration = duration + 's';
+            
+            // Add opacity for visibility
+            confetti.style.opacity = '0.9';
+            
+            // Ensure it's visible
+            confetti.style.display = 'block';
+            
+            document.body.appendChild(confetti);
+            
+            // Remove confetti after animation completes
+            setTimeout(() => {
+                if (confetti && confetti.parentNode) {
+                    confetti.remove();
+                }
+            }, duration * 1000);
+        }
+
+        // Create initial burst of confetti on page load
+        function confettiBurst() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => createConfetti(), i * 100);
+            }
+        }
+
+        // Start confetti when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial burst
+            setTimeout(confettiBurst, 500);
+            
+            // Continue creating confetti periodically
+            setInterval(createConfetti, 300);
+            
+            // Also start particles
+            setInterval(createParticle, 500);
+        });
 
         // Buy VOO function
         function buyVOO() {
+            // Trigger celebration confetti!
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => createConfetti(), i * 50);
+            }
+            
             // Update this with your DEX link when ready
             const dexLink = `https://app.uniswap.org/swap?outputCurrency=${CONTRACT_ADDRESS}`;
             if (CONTRACT_ADDRESS !== 'YOUR_CONTRACT_ADDRESS_HERE') {
-                window.open(dexLink, '_blank');
+                setTimeout(() => {
+                    window.open(dexLink, '_blank');
+                }, 500);
             } else {
                 alert('Contract address not yet configured!');
             }
@@ -796,6 +922,14 @@
         console.log('%c Don\'t be poor, anon! Buy $VOO! ', 'background: #FFD700; color: black; font-size: 20px; padding: 10px;');
         console.log('%c🎭 VOO Army Strong! 🎵', 'font-size: 20px; color: #4CAF50;');
         console.log('%c⚠️ Remember to set CONTRACT_ADDRESS in the code!', 'font-size: 16px; color: #FF6B6B;');
+        
+        // Initialize confetti on page load
+        setTimeout(() => {
+            console.log('🎉 Starting confetti party!');
+            for (let i = 0; i < 20; i++) {
+                createConfetti();
+            }
+        }, 1000);
     </script>
 </body>
 </html>
